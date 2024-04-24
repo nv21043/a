@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login</h2>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+    <form action="/login" method="post">
+        <label for="nv_number">NV Number:</label>
+        <input type="text" id="nv_number" name="nv_number" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+    <div class="button">
+        <a href="/" class="btn btn-primary">Main Page</a>
+        <button class="btn btn-primary" onclick="goBack()">Go Back</button>
+    </div>
+</body>
+</html>

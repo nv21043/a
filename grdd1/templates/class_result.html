@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Result</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS */
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .class-info {
+            margin-bottom: 20px;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 20px;
+        }
+        .col-md-6{
+            align-items: center;
+        }
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        h2{
+            text-align: center;
+        }
+        .button{  
+            padding-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1 class="card-title">Class Result</h1>
+            <div class="class-info">
+                <p>The class for <strong>{{ subject }}</strong> is: <strong>{{ class_code }}</strong></p>
+                <p>Class: <strong>{{ class_name }}</strong></p>
+            </div>            
+            <div class="text-center">
+                <h2><strong>{{ subject }}</strong> class location</h2>
+                <img src="{{ url_for('static', filename=image_filename) }}" alt="{{ subject }}" class="img-fluid">
+            </div>
+            <div class="container">
+                <div class="card">
+                    <!-- Other content -->
+                    <div class="text-center">
+                        <h2>Your path for <strong>{{ subject }} </strong> class</h2>
+                        <video controls class="img-fluid">
+                            <source src="{{ url_for('static', filename=video_filename) }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <a href="/" class="btn btn-primary">Main Page</a>
+                <button class="btn btn-primary" onclick="goBack()">Go Back</button>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS (optional, if needed) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function goBack() {
+          window.history.back();
+        }
+      </script>
+</body>
+</html>

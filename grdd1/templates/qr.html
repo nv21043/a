@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom CSS */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+        }
+        .card-title {
+            font-size: 28px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 15px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+            font-size: 18px;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+        /* Custom file input styling */
+        .custom-file {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+            
+        }
+        .custom-file-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 2;
+            color: black;
+        }
+        .custom-file-label {
+            border-radius: 25px;
+            padding: 6px 20px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .custom-file-label:hover {
+            background-color: #0056b3;
+        }
+        .custom-file-input:focus + .custom-file-label {
+            border-color: #0056b3;
+        }
+        .custom-file-label::after{
+            visibility: hidden;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 15px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1 class="card-title">Login</h1>
+            <form action="/loginin" method="post" enctype="multipart/form-data">
+                <!-- Custom file input -->
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="file" name="file">
+                    <label class="custom-file-label" for="file">Choose QR Code Image</label>
+                </div>
+                <input type="submit" value="Login" class="btn btn-submit">
+
+            </form>
+            <div class="button">
+                <a href="/" class="btn btn-primary">Main Page</a>
+                <button class="btn btn-primary" onclick="goBack()">Go Back</button>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS (optional, if needed) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript to update file input label -->
+    <script>
+        document.getElementById('file').addEventListener('change', function(e) {
+            var fileName = e.target.files[0].name;
+            var label = document.querySelector('.custom-file-label');
+            label.textContent = fileName;
+        });
+    </script>
+        <script>
+            function goBack() {
+              window.history.back();
+            }
+          </script>
+</body>
+</html>
